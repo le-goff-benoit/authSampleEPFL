@@ -1,1 +1,5 @@
-<h1>Hello <%= @user.email %></h1>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-success">
+    <%= msg %>
+  </div>
+<% end %>

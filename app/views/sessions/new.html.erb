@@ -1,19 +1,29 @@
+<% flash.each do |type, msg| %>
+  <div class="alert alert-danger">
+    <%= msg %>
+  </div>
+<% end %>
+
 <%= form_tag sessions_path do %>
   <div class="form-group row">
-    <%= label_tag "Email", nil, class:'col-sm-4 col-form-label' %>
+    <div class="col-sm-4">
+      <%= label_tag "Email", nil, class:'col-form-label' %>
+    </div>
     <div class="col-sm-8">
       <%= text_field_tag :email, nil, placeholder: "Email", class:'form-control' %>
     </div>
   </div>
 
   <div class="form-group row">
-    <%= label_tag "Password",nil, class:'col-sm-4 col-form-label' %>
+    <div class="col-sm-4">
+      <%= label_tag "Password",nil, class:'col-form-label' %>
+    </div>
     <div class="col-sm-8">
       <%= password_field_tag :password, nil, placeholder: "Password", class:'form-control' %>
     </div>
   </div>
 
   <div class="prompt">
-    <%= submit_tag "Log In"%>
+    <%= submit_tag "Log In", class:'btn btn-primary'%>
   </div>
 <% end %>

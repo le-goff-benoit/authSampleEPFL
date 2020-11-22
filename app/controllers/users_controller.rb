@@ -9,9 +9,11 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       @user.save
-      redirect_to @user
+      flash[:alert] = "Welcome to our new user: " + @user.email
+      redirect_to home_index_path
     else
-      redirect_to signup_path
+      flash[:alert] = "Unable to create an account."
+      render :new
     end
   end
 
