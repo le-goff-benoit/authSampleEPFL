@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email].downcase)
+
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:alert] = "Welcome: " + @user.email
@@ -15,9 +16,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  session[:user_id] = nil
-  flash[:alert] = "Successfully logout, thank you !"
-  redirect_to login_path
-end
+    session.delete(:user_id)
+    flash[:alert] = "Successfully logout, thank you !"
+    redirect_to login_path
+  end
 
 end

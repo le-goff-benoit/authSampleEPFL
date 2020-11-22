@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:show]
+  before_validation :downcase_email
+
 
   def new
     @user = User.new
@@ -22,6 +24,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def downcase_email
+    self.email = email.downcase
+  end
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
