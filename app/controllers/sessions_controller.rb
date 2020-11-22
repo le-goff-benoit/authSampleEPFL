@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:alert] = "Welcome: " + @user.email
-      redirect_to home_index_path
+      redirect_to @user
     else
       flash[:alert] = "Email or password were invalid.  Please try again"
       render :new

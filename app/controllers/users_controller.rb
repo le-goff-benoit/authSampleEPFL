@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:show]
-  before_validation :downcase_email
-
 
   def new
     @user = User.new
