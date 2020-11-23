@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
 
-  resources :users, only: [:create, :show] do
-    resources :reviews
-  end
+  resources :users, only: [:create, :show]
+  resources :reviews
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"

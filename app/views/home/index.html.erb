@@ -12,7 +12,9 @@
   </p>
 </section>
 <div class="row">
-  <%= render(partial:'./common/card')%>
-  <%= render(partial:'./common/card')%>
-  <%= render(partial:'./common/card')%>
+  <%= render(partial:'./common/card', locals: {
+    body: 'Hello',
+    timestamp: 'tete',
+    image_url: 'https://loremflickr.com/320/320'
+  }) %>
 </div>

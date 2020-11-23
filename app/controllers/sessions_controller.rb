@@ -25,4 +25,9 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
+  private
+  def review_params
+    params.require(:title).permit(:body)
+  end
+
 end
