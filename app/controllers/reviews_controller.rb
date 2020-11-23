@@ -4,17 +4,16 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review
+    @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
     current_user.reviews << @review
-    if @review.save!
+    if @review.valid?
       flash[:alert] = "Thank you for adding this review !"
       redirect_to home_index_path
     else
-      flash[:alert] = "There is a problem with the review you try to create."
       render :new
     end
   end

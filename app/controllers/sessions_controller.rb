@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       flash[:alert] = "Welcome: " + @user.email
       redirect_to home_index_path
     else
-      flash[:alert] = "Email or password were invalid.  Please try again"
+      flash[:alert] = "Email or password were invalid. Please try again"
       render :new
     end
   end

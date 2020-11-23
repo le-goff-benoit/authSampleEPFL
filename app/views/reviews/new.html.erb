@@ -1,10 +1,11 @@
-<% flash.each do |type, msg| %>
-  <div class="alert alert-danger">
-    <%= msg %>
-  </div>
-<% end %>
-
 <%= form_with model: @review , url: reviews_path do |f| %>
+<% if @review.errors.any? %>
+    <ul>
+    <% @review.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
 
     <h2>New Review</h2>
     <hr>
