@@ -1,0 +1,5 @@
+<% if logged_in? %>
+    <%= link_to "Write a Review", login_path, class: "btn btn-success my-2" %>
+<% else %>
+    <%= link_to "Login", login_path, class: "btn btn-success my-2" %>
+<% end %>

@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in?
+      flash[:alert] = "Already logged as: " + @user.email
+      redirect_to home_index_path
+    end
   end
 
   def create
@@ -8,7 +12,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:alert] = "Welcome: " + @user.email
-      redirect_to @user
+      redirect_to home_index_path
     else
       flash[:alert] = "Email or password were invalid.  Please try again"
       render :new

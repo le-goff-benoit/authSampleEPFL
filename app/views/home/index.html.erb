@@ -3,3 +3,16 @@
     <%= msg %>
   </div>
 <% end %>
+
+<section class="jumbotron text-center">
+  <h1>Hello <%= current_user.email if logged_in? %></h1>
+  <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+  <p>
+    <%= render(partial:'./home/partials/action_button') %>
+  </p>
+</section>
+<div class="row">
+  <%= render(partial:'./common/card')%>
+  <%= render(partial:'./common/card')%>
+  <%= render(partial:'./common/card')%>
+</div>

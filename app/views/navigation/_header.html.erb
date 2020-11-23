@@ -13,7 +13,7 @@
     </ul>
     <span class="navbar-text">
       <% if logged_in? %>
-        <%= link_to "Goodbye !", sessions_path, class: "nav-link text-danger", :method => :delete %>
+        <%= link_to "Logout", sessions_path, class: "nav-link text-danger", :method => :delete %>
       <% else %>
         <%= link_to "Login", login_path, class: "nav-link text-success" %>
       <% end %>
