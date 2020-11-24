@@ -12,9 +12,9 @@
   </p>
 </section>
 <div class="row">
+  <% @reviews.each do |r| %>
   <%= render(partial:'./common/card', locals: {
-    body: 'Hello',
-    timestamp: 'tete',
-    image_url: 'https://loremflickr.com/320/320'
+    review: r
   }) %>
+  <% end %>
 </div>

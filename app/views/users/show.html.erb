@@ -1,10 +1,8 @@
 <h1>Hello <%= @user.email %></h1>
 <div class="row">
-<% @user.reviews.each do |r| %>
+  <% @user.reviews.each do |r| %>
   <%= render(partial:'./common/card', locals: {
-    body: r.body,
-    timestamp: r.created_at,
-    image_url: r.image_url
+    review: r
   }) %>
-<% end %>
+  <% end %>
 </div>

@@ -1,0 +1,30 @@
+<%= form_with model: @review do |f| %>
+<% if @review.errors.any? %>
+    <ul>
+    <% @review.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+    <h2><%= form_title %></h2>
+    <hr>
+    <div class="form-group">
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :body, "Body" %>
+        <%= f.text_area :body, class:'form-control', size: '30x10' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :image_url, "Image URL" %>
+        <%= f.text_field :image_url, class:'form-control' %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit class:'btn btn-primary' %>
+    </div>
+<% end %>

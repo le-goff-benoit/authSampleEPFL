@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
 
   def edit
-
+    @review = Review.find(params[:id])
   end
 
   def show
@@ -28,7 +28,12 @@ class ReviewsController < ApplicationController
   end
 
   def update
-
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to @recipe
+    else
+      render 'edit'
+end
   end
 
   def destroy

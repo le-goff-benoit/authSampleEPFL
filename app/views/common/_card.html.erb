@@ -1,14 +1,14 @@
 <div class="col-md-4">
     <div class="card mb-4 shadow-sm">
-        <%= image_tag(image_url, class: "bd-placeholder-img card-img-top") %>
+        <%= image_tag(review.image_url, class: "bd-placeholder-img card-img-top") %>
         <div class="card-body">
-            <p class="card-text"><%= body %></p>
+            <p class="card-text"><%= review.body %></p>
             <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <%= link_to "View", edit_review_path(review), class: "btn btn-sm btn-outline-secondary" %>
+                <%= link_to "Edit", edit_review_path(review), class: "btn btn-sm btn-outline-secondary" %>
             </div>
-            <small class="text-muted"><%= timestamp %></small>
+            <small class="text-muted"><%= review.created_at %></small>
             </div>
         </div>
     </div>
